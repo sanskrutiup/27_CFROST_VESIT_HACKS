@@ -250,14 +250,12 @@ body {
   line-height: 1.8;
   color: #222;
   font-weight: 400;
-  background: #282828;
-  padding: 90px 0; }
+}
 
 .container {
   width: 1400px;
   position: relative;
-  margin: 0 auto;
-  background: #fff; }
+  margin: 0 auto; }
 
 .signup-img, .signup-form {
   width: 50%; }

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Razorpay</title>
+    <style type="text/css">
+        .form-style-8 {
+          font-family: "Open Sans Condensed", sans-serif;
+          width: 700px;
+          padding: 30px;
+          background: #ffffff;
+          margin: 10px auto;
+          box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+          -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+          -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+        }
+        .form-style-8 h2 {
+          background: #4641a7;
+          text-transform: uppercase;
+          font-family: "Open Sans Condensed", sans-serif;
+          color: #797979;
+          font-size: 18px;
+          font-weight: 100;
+          padding: 20px;
+          margin: -30px -30px 30px -30px;
+        }
+        .form-style-8 input[type="text"],
+        .form-style-8 input[type="date"],
+        .form-style-8 input[type="datetime"],
+        .form-style-8 input[type="email"],
+        .form-style-8 input[type="number"],
+        .form-style-8 input[type="search"],
+        .form-style-8 input[type="time"],
+        .form-style-8 input[type="url"],
+        .form-style-8 input[type="password"],
+        .form-style-8 select {
+          box-sizing: border-box;
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          outline: none;
+          display: block;
+          width: 100%;
+          padding: 7px;
+          border: none;
+          border-bottom: 1px solid #ddd;
+          background: transparent;
+          margin-bottom: 10px;
+          font-family: "Open Sans Condensed", sans-serif;
+          height: 45px;
+        }
+        .form-style-8 input[type="button"],
+        .form-style-8 input[type="submit"] {
+          -moz-box-shadow: inset 0px 1px 0px 0px #4641a7;
+          -webkit-box-shadow: inset 0px 1px 0px 0px #4641a7;
+          box-shadow: inset 0px 1px 0px 0px #4641a7;
+          background-color: #4641a7;
+          border: 1px solid #4641a7;
+          display: inline-block;
+          cursor: pointer;
+          color: #ffffff;
+          font-family: "Poppins", sans-serif;
+          font-size: 14px;
+          padding: 8px 18px;
+          text-decoration: none;
+          text-transform: uppercase;
+        }
+        .form-style-8 input[type="button"]:hover,
+        .form-style-8 input[type="submit"]:hover {
+          background: linear-gradient(to bottom, #4641a7 5%, #4641a7 100%);
+          background-color: #4641a7;
+        }
+        .razorpay-payment-button{
+          display: inline-block;
+          font-size: 14px;
+          padding: 10px 28px 10px;
+          color: #ffffff;
+          text-transform: uppercase;
+          font-weight: 700;
+          background: #7fad39;
+          letter-spacing: 2px;
+          }
+        
+          .razorpay-payment-button:hover {
+            background-color: #bebbf4;
+          }
+
+        .razorpay-payment-button{
+            text-align: center;
+        }
+      </style>
+</head>
+<body>
+
+    {% extends "base.html" %}
+    {% load static %}
+    {% block body %}
+    
+
+<form action="/razorpay_pay" method="POST" id="form1" align="center">
+  {% csrf_token %}
+    <div class="border text-center">
+    <img src="{% static 'img/razorpay_logo.png' %}" alt="Image" class="img-fluid p-5" style="height: 600px; width: 800px;"> <br>
+    </div>
+    
+    {% comment %} <input type="text" name="seller_id" value="{{orders.seller_id}}" hidden> {% endcomment %}
+    <script
+        src="https://checkout.razorpay.com/v1/checkout.js"
+        data-key="rzp_test_HJEVdhoCF6dSvY" 
+        data-amount="2000"
+        data-currency="INR"
+        data-order_id="{{payment.id}}"
+        data-buttontext="Pay with Razorpay"
+        data-name="Grocery"
+        data-description="A Wild Sheep Chase is the third novel by Japanese author Haruki Murakami"
+        data-image="{% static 'img/farm2door.png' %}"
+        data-prefill.name="Aaman Bhowmick"
+        data-prefill.email="aaman.bhowmick21@gmail.com"
+        data-theme.color="#3399cc"
+    ></script>
+    </form>
+    {% endblock body %} 
+</body>
+</html>
+

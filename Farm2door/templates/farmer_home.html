@@ -1,0 +1,15 @@
+{% extends 'farmer_base.html' %}
+
+{% block f_body %}
+<style>
+    .farmer_home_wrap{
+        display: flex;
+        justify-content: center;
+        margin: 20px auto;
+    }
+</style>
+
+<section class="farmer_home_wrap">
+    <script type='module' src='https://10az.online.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js'></script><tableau-viz id='tableau-viz' src='https://10az.online.tableau.com/t/demopersistent/views/Book1/Dashboard1' width='1000' height='840' hide-tabs toolbar='bottom' ></tableau-viz>
+</section>
+{% endblock f_body %}
